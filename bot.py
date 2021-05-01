@@ -226,7 +226,7 @@ class DiscordGSM():
                 if int(data['maxplayers']) <= int(data['players']):
                     color = discord.Color.from_rgb(240, 71, 71) # red
                 elif int(data['maxplayers']) <= int(data['players']) * 2:
-                    color = discord.Color.from_rgb(250, 166, 26) # yellew
+                    color = discord.Color.from_rgb(250, 166, 26) # yellow
                 else:
                     color = discord.Color.from_rgb(67, 181, 129) # green
                     try:
@@ -239,12 +239,12 @@ class DiscordGSM():
             else:
                 color = discord.Color.from_rgb(32, 34, 37) # dark
 
-            title = (data['password'] and ':lock: ' or '') + f'`{data["name"]}`'
+            title = (data['password'] and ':lock: ' or '') + f'{data["name"]}'
             custom = ('custom' in server) and server['custom'] or None
             if custom and custom.strip():
                 embed = discord.Embed(title=title, description=custom, color=color)
             elif server['type'] == 'SourceQuery' and not custom:
-                embed = discord.Embed(title=title, description=f'Connect: steam://connect/{data["addr"]}:{server["port"]}', color=color)
+                embed = discord.Embed(title=title, description=f'steam://connect/{data["addr"]}:{server["port"]}', color=color)
             else:
                 embed = discord.Embed(title=title, color=color)
 
